@@ -1,1 +1,1 @@
-al iniciar el programa se deberá crear la base de datos con una funcion try revisando si esta creada o no, luego comenzara la ejecucion de la interfaz
+modularizar las ventanas Toplevel del menu

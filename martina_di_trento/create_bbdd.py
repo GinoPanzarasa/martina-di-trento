@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd
 import matplotlib as plt
 
-def conexion-BBDD():
+def conexion_BBDD():
     try:
         #creando tabla Vendedoras
         conn = sqlite3.connect('martinaDiTrento.db')

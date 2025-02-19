@@ -1,16 +1,80 @@
+import sqlite3
 from tkinter import *
+from tkinter import messagebox
 
 root = Tk()
 root.title("Martina Di Trento")
 root.geometry("1200x600")
 
-
 barraMenu=Menu(root)
+
+
+#funciones del Menú Vendedora
+
+def opcion_agregar_vendedora():
+    def limpiarCampos():
+        miCod.set("")
+        miApellido.set("")
+        miNombre.set("")
+
+    def agregar():
+        pass
+        """
+        agregar_vendedora(miCod.get(),miApellido.get(),miNombre.get())
+        limpiarCampos()
+        ventana_vendAgregada()
+        """
+        
+    def ventana_vendAgregada():
+        pass
+        """
+        messagebox.showinfo("Vendedora Agregada", "Bien ahi pirulin!")
+        """
+        
+    miCod = StringVar()
+    miApellido = StringVar()
+    miNombre = StringVar()
+
+    ventana_agregar_vendedora=Toplevel(root)
+    ventana_agregar_vendedora.title=("Agregar Vendedora")
+    ventana_agregar_vendedora.config(bg="#dc0251")
+    
+    miFrame = Frame(ventana_agregar_vendedora)
+    miFrame.config(bg="#dc0251")
+    miFrame.pack(pady=30)
+        
+    codigoLabel = Label(miFrame, text="Codigo Vendedora: ")
+    codigoLabel.grid (row=0, column=0, padx=10, pady=10, sticky="nsew")
+
+    apellidoLabel= Label(miFrame, text="Apellido: ")
+    apellidoLabel.grid (row=1, column=0, padx=10, pady=10, sticky="nsew")
+
+    nombreLabel= Label(miFrame, text="Nombre: ")
+    nombreLabel.grid (row=2, column=0, padx=10, pady=10, sticky="nsew")
+
+    cuadroCodigo= Entry(miFrame, textvariable= miCod)
+    cuadroCodigo.grid (row=0, column=1, padx=20, pady=10, sticky="e")
+
+    cuadroApellido= Entry(miFrame, textvariable= miApellido)
+    cuadroApellido.grid (row=1, column=1, padx=20, pady=10, sticky="e")
+
+    cuadroNombre= Entry(miFrame, textvariable= miNombre)
+    cuadroNombre.grid (row=2, column=1, padx=20, pady=10, sticky="e")
+
+    botonAgregar=Button(miFrame, text="Agregar")
+    botonAgregar.grid (row=3, column=0, padx=30, pady=30, sticky="e")
+
+    botonCancelar=Button(miFrame, text="Cancelar", command=ventana_agregar_vendedora.destroy)
+    botonCancelar.grid (row=3, column=1, padx=30, pady=30, sticky="n")
+    
+
+
+
 
 
 #Menu Vendedora
 vendedoraMenu=Menu(barraMenu, tearoff=0)
-vendedoraMenu.add_command(label="Agregar Vendedora")
+vendedoraMenu.add_command(label="Agregar Vendedora", command=opcion_agregar_vendedora)
 vendedoraMenu.add_command(label="Editar Vendedora")
 vendedoraMenu.add_command(label="Eliminar Vendedora")
 vendedoraMenu.add_command(label="Ver Vendedoras")
