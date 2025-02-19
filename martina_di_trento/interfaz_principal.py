@@ -8,15 +8,21 @@ root.geometry("1200x600")
 
 barraMenu=Menu(root)
 
-#------------------------------------------------------------
 
-#funciones del Menú Vendedora
+#---------------------------------Ventanas Menu principal-----------------------
+
+
+#--------------
+#Menú Vendedora
+#-----
+#Agregar Vendedora
 
 def opcion_agregar_vendedora():
     def limpiarCampos():
         miCod.set("")
         miApellido.set("")
         miNombre.set("")
+        credito.set(False)
 
     def agregar():
         pass
@@ -35,9 +41,10 @@ def opcion_agregar_vendedora():
     miCod = StringVar()
     miApellido = StringVar()
     miNombre = StringVar()
+    credito = BooleanVar()
 
     ventana_agregar_vendedora=Toplevel(root)
-    ventana_agregar_vendedora.title=("Agregar Vendedora")
+    ventana_agregar_vendedora.title("Agregar Vendedora")
     ventana_agregar_vendedora.geometry("+550+200")
     ventana_agregar_vendedora.config(bg="#dc0251")
     
@@ -53,6 +60,9 @@ def opcion_agregar_vendedora():
 
     nombreLabel= Label(miFrame, text="Nombre: ")
     nombreLabel.grid (row=2, column=0, padx=10, pady=10, sticky="nsew")
+    
+    creditoLabel= Label(miFrame, text="Crédito: ")
+    creditoLabel.grid (row=3, column=0, padx=10, pady=10, sticky="nsew")
 
     cuadroCodigo= Entry(miFrame, textvariable= miCod)
     cuadroCodigo.grid (row=0, column=1, padx=20, pady=10, sticky="e")
@@ -62,12 +72,42 @@ def opcion_agregar_vendedora():
 
     cuadroNombre= Entry(miFrame, textvariable= miNombre)
     cuadroNombre.grid (row=2, column=1, padx=20, pady=10, sticky="e")
+    
+    creditoButton1= Radiobutton(miFrame, text=" Si ", variable= credito, value=1)
+    creditoButton1.grid (row=3, column=1, padx=20, pady=10, sticky="n")
+    
+    creditoButton2= Radiobutton(miFrame, text="No", variable= credito, value=2)
+    creditoButton2.grid (row=4, column=1, padx=20, sticky="n")
 
     botonAgregar=Button(miFrame, text="Agregar")
-    botonAgregar.grid (row=3, column=0, padx=30, pady=30, sticky="e")
+    botonAgregar.grid (row=5, column=0, padx=30, pady=30, sticky="e")
 
     botonCancelar=Button(miFrame, text="Cancelar", command=ventana_agregar_vendedora.destroy)
-    botonCancelar.grid (row=3, column=1, padx=30, pady=30, sticky="n")
+    botonCancelar.grid (row=5, column=1, padx=30, pady=30, sticky="n")
+    
+#Editar Vendedora
+
+#Eliminar Vendedora
+
+#Ver Vendedoras
+
+
+
+#--------------
+#Menú Vendedora
+#-----
+#Agregar Pago
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 #--------------------------------------------------------------
 

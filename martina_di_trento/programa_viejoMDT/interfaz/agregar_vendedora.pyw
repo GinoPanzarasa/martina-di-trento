@@ -19,7 +19,6 @@ def agregar():
 
 def ventana_vendAgregada():
     messagebox.showinfo("Vendedora Agregada", "Bien ahi pirulin!")
-   
 
 root = Tk()
 root.geometry("350x300")
