@@ -8,6 +8,7 @@ root.geometry("1200x600")
 
 barraMenu=Menu(root)
 
+#------------------------------------------------------------
 
 #funciones del Menú Vendedora
 
@@ -37,6 +38,7 @@ def opcion_agregar_vendedora():
 
     ventana_agregar_vendedora=Toplevel(root)
     ventana_agregar_vendedora.title=("Agregar Vendedora")
+    ventana_agregar_vendedora.geometry("+550+200")
     ventana_agregar_vendedora.config(bg="#dc0251")
     
     miFrame = Frame(ventana_agregar_vendedora)
@@ -67,10 +69,9 @@ def opcion_agregar_vendedora():
     botonCancelar=Button(miFrame, text="Cancelar", command=ventana_agregar_vendedora.destroy)
     botonCancelar.grid (row=3, column=1, padx=30, pady=30, sticky="n")
     
+#--------------------------------------------------------------
 
-
-
-
+#Menu Principal
 
 #Menu Vendedora
 vendedoraMenu=Menu(barraMenu, tearoff=0)
