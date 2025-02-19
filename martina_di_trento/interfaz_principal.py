@@ -64,3 +64,4 @@ miLabel1 = Label(root,bg="#dc0251", image=miImage, width= 600, height=120)
 miLabel1.place(relx=0.25, rely=0.5)
 
 root.mainloop()
+
