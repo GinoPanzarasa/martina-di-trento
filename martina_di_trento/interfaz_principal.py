@@ -46,13 +46,19 @@ personalMenu=Menu(barraMenu, tearoff=0)
 personalMenu.add_command(label="opcion1")
 personalMenu.add_command(label="opcion2")
 
+#Menu Base de Datos
+bbddMenu=Menu(barraMenu, tearoff=0)
+bbddlMenu.add_command(label="Crear BBDD")
+bbddlMenu.add_command(label="Exportar BBDD")
+bbddlMenu.add_command(label="Vaciar BBDD")
+
 barraMenu.add_cascade(label="Vendedoras", menu=vendedoraMenu)
 barraMenu.add_cascade(label="Pagos", menu=pagosMenu)
 barraMenu.add_cascade(label="Cambios", menu=cambiosMenu)
 barraMenu.add_cascade(label="Facturación", menu=facturacionMenu)
 barraMenu.add_cascade(label="Saldos", menu=saldoMenu)
 barraMenu.add_cascade(label="Personal", menu=personalMenu)
-
+barraMenu.add_cascade(label="BBDD", menu=bbddlMenu)
 
 root.config(bg="#c31632", menu=barraMenu)
 

@@ -78,8 +78,9 @@ def conexion-BBDD():
         conn.commit()
         cursor.close()
         conn.close()
+        print("La Base de Datos ha sido creada")
     
     except:
-        print("El archivo ya ha sido creado")
+        print("La Base de Datos ya existe")
 
 
