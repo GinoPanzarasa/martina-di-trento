@@ -98,7 +98,81 @@ def opcion_agregar_vendedora():
 #-----
 #Agregar Pago
     
+def opcion_agregar_pagos():
+    def limpiarCampos():
+        miImporte.set("")
+        miDescripcion.set("")
+        miCod.set("")
+        miDestino.set("")
+        miCampaña.set("")
+
+    def agregar():
+        pass
+
+        
+    def ventana_pagoAgregado():
+        pass
+        """
+        messagebox.showinfo("Pago Agregado", "Bien ahi pirulin!")
+        """
     
+    miImporte= DoubleVar()
+    miDescripcion = StringVar()
+    miCod = StringVar()
+    miDestino = StringVar()
+    miCampania = IntVar()   
+
+
+    ventana_agregar_pago=Toplevel(root)
+    ventana_agregar_pago.title("Agregar Pago")
+    ventana_agregar_pago.geometry("+550+200")
+    ventana_agregar_pago.config(bg="#dc0251")
+    
+    miFrame = Frame(ventana_agregar_pago)
+    miFrame.config(bg="#dc0251")
+    miFrame.pack(pady=30)
+        
+    importeLabel = Label(miFrame, text="Importe: ")
+    importeLabel.grid (row=0, column=0, padx=10, pady=10, sticky="nsew")
+
+    descripcionLabel= Label(miFrame, text="Descripción: ")
+    descripcionLabel.grid (row=1, column=0, padx=10, pady=10, sticky="nsew")
+
+    codigoLabel= Label(miFrame, text="Codigo Vendedora: ")
+    codigoLabel.grid (row=2, column=0, padx=10, pady=10, sticky="nsew")
+    
+    destinoLabel= Label(miFrame, text="Destino: ")
+    destinoLabel.grid (row=3, column=0, padx=10, pady=10, sticky="nsew")
+    
+    campaniaLabel= Label(miFrame, text="Campaña: ")
+    campaniaLabel.grid (row=6, column=0, padx=10, pady=10, sticky="nsew")
+
+    cuadroImporte= Entry(miFrame, textvariable= miImporte)
+    cuadroImporte.grid (row=0, column=1, padx=20, pady=10, sticky="e")
+
+    cuadroDescripcion= Entry(miFrame, textvariable= miDescripcion)
+    cuadroDescripcion.grid (row=1, column=1, padx=20, pady=10, sticky="e")
+    
+    cuadroCodVendedora= Entry(miFrame, textvariable=miCod)
+    cuadroCodVendedora.grid (row=2, column=1, padx=20, pady=10, sticky="e")
+
+    creditoButton1= Radiobutton(miFrame, text="Empresa", variable= miDestino, value="Empresa")
+    creditoButton1.grid (row=3, column=1, padx=20,  pady=10, sticky="n")
+    
+    creditoButton2= Radiobutton(miFrame, text=" Zulma ", variable= miDestino, value="Zulma")
+    creditoButton2.grid (row=4, column=1, padx=20,  pady=10, sticky="n")
+
+    creditoButton3= Radiobutton(miFrame, text="  Otro  ", variable= miDestino, value="Otro")
+    creditoButton3.grid (row=5, column=1, padx=20,  pady=10,sticky="n")
+    
+    cuadroCampania= Entry(miFrame, textvariable= miCampania)
+    cuadroCampania.grid (row=6, column=1, padx=20, pady=10, sticky="e")
+    
+    botonAgregar=Button(miFrame, text="Agregar")
+    botonAgregar.grid (row=7, column=0, padx=30, pady=30, sticky="e")
+
+    botonCancelar=Button(miFrame, text="Cancelar", command=ventana_agregar_pago.destroy)
+    botonCancelar.grid (row=7, column=1, padx=30, pady=30, sticky="n")
     
     
     
@@ -122,7 +196,7 @@ vendedoraMenu.add_command(label="Ver Vendedoras")
 
 #Menu Pagos
 pagosMenu=Menu(barraMenu, tearoff=0)
-pagosMenu.add_command(label="Agregar Pago")
+pagosMenu.add_command(label="Agregar Pago", command=opcion_agregar_pagos)
 pagosMenu.add_command(label="Editar Pago")
 pagosMenu.add_command(label="Eliminar Pago")
 pagosMenu.add_command(label="Ver Pagos")
