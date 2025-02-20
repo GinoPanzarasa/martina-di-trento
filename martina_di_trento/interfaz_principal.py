@@ -109,7 +109,6 @@ def opcion_agregar_pagos():
     def agregar():
         pass
 
-        
     def ventana_pagoAgregado():
         pass
         """
@@ -121,7 +120,6 @@ def opcion_agregar_pagos():
     miCod = StringVar()
     miDestino = StringVar()
     miCampania = IntVar()   
-
 
     ventana_agregar_pago=Toplevel(root)
     ventana_agregar_pago.title("Agregar Pago")
