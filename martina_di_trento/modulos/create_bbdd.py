@@ -76,6 +76,8 @@ def conexion_BBDD():
                         )
                     """)
         conn.commit()
+        
+        #cerrando cursor y conexión
         cursor.close()
         conn.close()
         print("La Base de Datos ha sido creada")
@@ -83,4 +85,21 @@ def conexion_BBDD():
     except:
         print("La Base de Datos ya existe")
 
+def limpiar_datos_BBDD():
+    conn = sqlite3.connect('martinaDiTrento.db')
+    cursor = conn.cursor()
+    cursor.execute(f"DELETE FROM Vendedoras")
+    conn.commit()
+    cursor.execute(f"DELETE FROM Cambios")
+    conn.commit()
+    cursor.execute(f"DELETE FROM Pagos")
+    conn.commit()
+    cursor.execute(f"DELETE FROM Facturacion")
+    conn.commit()
+    cursor.execute(f"DELETE FROM Campaña")
+    conn.commit()
+    cursor.close()
+    conn.close()
+    print("La Base de Datos, ha sido Limpiada")
+        
 

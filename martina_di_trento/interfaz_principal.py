@@ -1,6 +1,8 @@
 import sqlite3
 from tkinter import *
 from tkinter import messagebox
+import from modulos.create_bbdd conexion_BBDD as conexion_BBDD
+import from modulos.create_bbdd limpiar_datos_BBDD as limpiar_datos_BBDD
 
 root = Tk()
 root.title("Martina Di Trento")
@@ -175,8 +177,23 @@ def opcion_agregar_pagos():
     
     
     
-    
-    
+#Menu Base de Datos
+#Crear BBDD
+def crear_bbdd():
+    try:
+        conexion_BBDD()
+        messagebox.showinfo("Creacion de Base de Datos", "La Base de Datos ha sido creada")
+    except:
+        messagebox.showinfo("Error de Base de Datos", "La Base de Datos no pudo crearse")
+
+#Vaciar BBDD
+def vaciar_bbdd():
+    try:
+        limpiar_datos_BBDD()
+        messagebox.showinfo("Limpieza de Base de Datos", "La Base de Datos ha sido limpiada")
+    except:
+        messagebox.showinfo("Error Limpieza de Base de Datos", "La Base de Datos no pudo limpiarse")
+
     
     
     
@@ -220,9 +237,9 @@ personalMenu.add_command(label="opcion2")
 
 #Menu Base de Datos
 bbddMenu=Menu(barraMenu, tearoff=0)
-bbddMenu.add_command(label="Crear BBDD")
+bbddMenu.add_command(label="Crear BBDD", command=crear_BBDD)
 bbddMenu.add_command(label="Exportar BBDD")
-bbddMenu.add_command(label="Vaciar BBDD")
+bbddMenu.add_command(label="Vaciar BBDD", command=limpiar_datos_BBDD)
 
 barraMenu.add_cascade(label="Vendedoras", menu=vendedoraMenu)
 barraMenu.add_cascade(label="Pagos", menu=pagosMenu)
