@@ -1,8 +1,14 @@
 import sqlite3
 from tkinter import *
 from tkinter import messagebox
-import from modulos.create_bbdd conexion_BBDD as conexion_BBDD
-import from modulos.create_bbdd limpiar_datos_BBDD as limpiar_datos_BBDD
+
+#Modulo BBDD
+from modulos.menu_vendedoras import agregar_vendedora as agregar_vendedora
+
+
+#Modulo BBDD
+from modulos.create_bbdd import conexion_BBDD as conexion_BBDD
+from modulos.create_bbdd import limpiar_datos_BBDD as limpiar_datos_BBDD
 
 root = Tk()
 root.title("Martina Di Trento")
@@ -24,26 +30,21 @@ def opcion_agregar_vendedora():
         miCod.set("")
         miApellido.set("")
         miNombre.set("")
-        credito.set(False)
+        miCredito.set(False)
 
     def agregar():
-        pass
-        """
-        agregar_vendedora(miCod.get(),miApellido.get(),miNombre.get())
+        agregar_vendedora(miCod.get(),miApellido.get(),miNombre.get(),miCredito.get())
         limpiarCampos()
         ventana_vendAgregada()
-        """
         
     def ventana_vendAgregada():
-        pass
-        """
         messagebox.showinfo("Vendedora Agregada", "Bien ahi pirulin!")
-        """
+
         
     miCod = StringVar()
     miApellido = StringVar()
     miNombre = StringVar()
-    credito = BooleanVar()
+    miCredito = BooleanVar()
 
     ventana_agregar_vendedora=Toplevel(root)
     ventana_agregar_vendedora.title("Agregar Vendedora")
@@ -75,13 +76,13 @@ def opcion_agregar_vendedora():
     cuadroNombre= Entry(miFrame, textvariable= miNombre)
     cuadroNombre.grid (row=2, column=1, padx=20, pady=10, sticky="e")
     
-    creditoButton1= Radiobutton(miFrame, text=" Si ", variable= credito, value=1)
+    creditoButton1= Radiobutton(miFrame, text=" Si ", variable= miCredito, value=1)
     creditoButton1.grid (row=3, column=1, padx=20, pady=10, sticky="n")
     
-    creditoButton2= Radiobutton(miFrame, text="No", variable= credito, value=2)
+    creditoButton2= Radiobutton(miFrame, text="No", variable= miCredito, value=2)
     creditoButton2.grid (row=4, column=1, padx=20, sticky="n")
 
-    botonAgregar=Button(miFrame, text="Agregar")
+    botonAgregar=Button(miFrame, text="Agregar", command=agregar)
     botonAgregar.grid (row=5, column=0, padx=30, pady=30, sticky="e")
 
     botonCancelar=Button(miFrame, text="Cancelar", command=ventana_agregar_vendedora.destroy)
@@ -204,42 +205,42 @@ def vaciar_bbdd():
 #Menu Vendedora
 vendedoraMenu=Menu(barraMenu, tearoff=0)
 vendedoraMenu.add_command(label="Agregar Vendedora", command=opcion_agregar_vendedora)
-vendedoraMenu.add_command(label="Editar Vendedora")
-vendedoraMenu.add_command(label="Ver Vendedoras")
+vendedoraMenu.add_command(label="Editar Vendedora (no conf)") #no configurado
+vendedoraMenu.add_command(label="Ver Vendedoras (no conf)") #no configurado
 
 #Menu Pagos
 pagosMenu=Menu(barraMenu, tearoff=0)
 pagosMenu.add_command(label="Agregar Pago", command=opcion_agregar_pagos)
-pagosMenu.add_command(label="Editar Pago")
-pagosMenu.add_command(label="Ver Pagos")
+pagosMenu.add_command(label="Editar Pago (no conf)") #no configurado
+pagosMenu.add_command(label="Ver Pagos (no conf)") #no configurado
 
 #Menu Cambios
 cambiosMenu=Menu(barraMenu, tearoff=0)
-cambiosMenu.add_command(label="Agregar Cambio")
-cambiosMenu.add_command(label="Editar Cambio")
-cambiosMenu.add_command(label="Ver Cambios")
+cambiosMenu.add_command(label="Agregar Cambio (no conf)") #no configurado
+cambiosMenu.add_command(label="Editar Cambio (no conf)") #no configurado
+cambiosMenu.add_command(label="Ver Cambios (no conf)") #no configurado
 
 #Menu Facturación
 facturacionMenu=Menu(barraMenu, tearoff=0)
-facturacionMenu.add_command(label="Agregar Factura")
-facturacionMenu.add_command(label="Editar Factura")
-facturacionMenu.add_command(label="Ver Facturas")
+facturacionMenu.add_command(label="Agregar Factura (no conf)") #no configurado
+facturacionMenu.add_command(label="Editar Factura (no conf)") #no configurado
+facturacionMenu.add_command(label="Ver Facturas (no conf)") #no configurado
 
 #Menu Saldos
 saldoMenu=Menu(barraMenu, tearoff=0)
-saldoMenu.add_command(label="Saldo por campaña")
-saldoMenu.add_command(label="Total")
+saldoMenu.add_command(label="Saldo por campaña (no conf)") #no configurado
+saldoMenu.add_command(label="Total (no conf)") #no configurado
 
 #Menu Personal
 personalMenu=Menu(barraMenu, tearoff=0)
-personalMenu.add_command(label="opcion1")
-personalMenu.add_command(label="opcion2")
+personalMenu.add_command(label="opcion1 (no conf)") #no configurado
+personalMenu.add_command(label="opcion2 (no conf)") #no configurado
 
 #Menu Base de Datos
 bbddMenu=Menu(barraMenu, tearoff=0)
-bbddMenu.add_command(label="Crear BBDD", command=crear_BBDD)
-bbddMenu.add_command(label="Exportar BBDD")
-bbddMenu.add_command(label="Vaciar BBDD", command=limpiar_datos_BBDD)
+bbddMenu.add_command(label="Crear BBDD", command=crear_bbdd)
+bbddMenu.add_command(label="Exportar BBDD (no conf)")
+bbddMenu.add_command(label="Vaciar BBDD", command=vaciar_bbdd)
 
 barraMenu.add_cascade(label="Vendedoras", menu=vendedoraMenu)
 barraMenu.add_cascade(label="Pagos", menu=pagosMenu)
