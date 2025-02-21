@@ -87,7 +87,6 @@ def opcion_agregar_vendedora():
     
 #Editar Vendedora
 
-#Eliminar Vendedora
 
 #Ver Vendedoras
 
@@ -189,28 +188,24 @@ def opcion_agregar_pagos():
 vendedoraMenu=Menu(barraMenu, tearoff=0)
 vendedoraMenu.add_command(label="Agregar Vendedora", command=opcion_agregar_vendedora)
 vendedoraMenu.add_command(label="Editar Vendedora")
-vendedoraMenu.add_command(label="Eliminar Vendedora")
 vendedoraMenu.add_command(label="Ver Vendedoras")
 
 #Menu Pagos
 pagosMenu=Menu(barraMenu, tearoff=0)
 pagosMenu.add_command(label="Agregar Pago", command=opcion_agregar_pagos)
 pagosMenu.add_command(label="Editar Pago")
-pagosMenu.add_command(label="Eliminar Pago")
 pagosMenu.add_command(label="Ver Pagos")
 
 #Menu Cambios
 cambiosMenu=Menu(barraMenu, tearoff=0)
 cambiosMenu.add_command(label="Agregar Cambio")
 cambiosMenu.add_command(label="Editar Cambio")
-cambiosMenu.add_command(label="Eliminar Cambio")
 cambiosMenu.add_command(label="Ver Cambios")
 
 #Menu Facturación
 facturacionMenu=Menu(barraMenu, tearoff=0)
 facturacionMenu.add_command(label="Agregar Factura")
 facturacionMenu.add_command(label="Editar Factura")
-facturacionMenu.add_command(label="Eliminar Factura")
 facturacionMenu.add_command(label="Ver Facturas")
 
 #Menu Saldos
