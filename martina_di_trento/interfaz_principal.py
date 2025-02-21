@@ -4,7 +4,7 @@ from tkinter import messagebox
 
 #Modulo BBDD
 from modulos.menu_vendedoras import agregar_vendedora as agregar_vendedora
-
+from modulos.menu_vendedoras import leer_vendedora as leer_vendedora
 
 #Modulo BBDD
 from modulos.create_bbdd import conexion_BBDD as conexion_BBDD
@@ -87,8 +87,38 @@ def opcion_agregar_vendedora():
 
     botonCancelar=Button(miFrame, text="Cancelar", command=ventana_agregar_vendedora.destroy)
     botonCancelar.grid (row=5, column=1, padx=30, pady=30, sticky="n")
+
+#-----   
+#Editar Vendedoras
+#Leer datos
+def ventana_leer_vendedora():
+    def opcion_editar_vendedora():
+        pass
+        
     
-#Editar Vendedora
+    miCodigo = StringVar()
+        
+    ventana_leer_vendedora=Toplevel(root)
+    ventana_leer_vendedora.title("Medificar Vendedora")
+    ventana_leer_vendedora.geometry("+550+200")
+    ventana_leer_vendedora.config(bg="#dc0251")
+
+    miFrame = Frame(ventana_leer_vendedora)
+    miFrame.config(bg="#dc0251")
+    miFrame.pack(pady=30)
+    
+    codigoLabel = Label(miFrame, text="Codigo Vendedora: ")
+    codigoLabel.grid (row=0, column=0, padx=10, pady=10, sticky="nsew")
+    
+    cuadroCodigo= Entry(miFrame, textvariable= miCodigo)
+    cuadroCodigo.grid (row=0, column=1, padx=20, pady=10, sticky="e")
+
+    botonAceptar=Button(miFrame, text="Aceptar", command=opcion_editar_vendedora)
+    botonAceptar.grid (row=5, column=0, padx=30, pady=30, sticky="e")
+
+    botonCancelar=Button(miFrame, text="Cancelar", command=ventana_leer_vendedora.destroy)
+    botonCancelar.grid (row=5, column=1, padx=30, pady=30, sticky="n")
+        
 
 
 #Ver Vendedoras
@@ -205,12 +235,12 @@ def vaciar_bbdd():
 #Menu Vendedora
 vendedoraMenu=Menu(barraMenu, tearoff=0)
 vendedoraMenu.add_command(label="Agregar Vendedora", command=opcion_agregar_vendedora)
-vendedoraMenu.add_command(label="Editar Vendedora (no conf)") #no configurado
+vendedoraMenu.add_command(label="Editar Vendedora", command=ventana_leer_vendedora) #no configurado
 vendedoraMenu.add_command(label="Ver Vendedoras (no conf)") #no configurado
 
 #Menu Pagos
 pagosMenu=Menu(barraMenu, tearoff=0)
-pagosMenu.add_command(label="Agregar Pago", command=opcion_agregar_pagos)
+pagosMenu.add_command(label="Agregar Pago (no conf)", command=opcion_agregar_pagos) #no configurado
 pagosMenu.add_command(label="Editar Pago (no conf)") #no configurado
 pagosMenu.add_command(label="Ver Pagos (no conf)") #no configurado
 
